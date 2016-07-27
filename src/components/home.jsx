@@ -12,6 +12,7 @@ export default class Home extends React.Component {
     }
   }
 
+// To get the data using an AJAX request from the Marvel API
   componentWillMount() {
     this._fetchData();
   }
@@ -27,6 +28,7 @@ export default class Home extends React.Component {
     });
   }
 
+// To show/hide the comic book description
   _showInfo(comic) {
     this.setState({ show: !this.state.show });
   }
@@ -41,9 +43,11 @@ export default class Home extends React.Component {
           <div className="comic-wrapper">
             <div className="comic-images">
               { comics.map((comic, index) => (
-                  <div key={index} className="comic-image" onClick={this._showInfo.bind(this)}>
+                  <div key={index} className={`comic-image image-${comic.id}`} onClick={this._showInfo.bind(this)}>
                       <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-                      {this.state.show ? <div className="comic-desc">{comic.description}</div> : " " }
+                      <div className={`hide-${this.state.show}`}>
+                        <div className="comic-desc">{comic.description}</div>
+                      </div>
                   </div>
               ))}
             </div>
