@@ -20,13 +20,18 @@ export default class Home extends React.Component {
       method: 'GET',
       url:
       'http://gateway.marvel.com/v1/public/comics?apikey=c1a92559e851c361fc7f540560163ef8',
-      success: function(result) {
-        console.log(result);
+      success: response => {
+        this.setState({ comics: response.data.results });
       }
     });
   }
 
   render() {
-    
+    const { comics } = this.state;
+    return (
+      <div>
+        
+      </div>
+    )
   }
 }
