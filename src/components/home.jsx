@@ -30,7 +30,18 @@ export default class Home extends React.Component {
     const { comics } = this.state;
     return (
       <div>
-        
+          <div className="page_header">
+              <h1 className="page_title">Marvel</h1>
+          </div>
+          <div className="comic-wrapper">
+            <div className="comic-images">
+              { comics.map((comic, index) => (
+                  <div key={index} className="comic-image">
+                    <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.description} />
+                  </div>
+              ))}
+            </div>
+          </div>
       </div>
     )
   }
