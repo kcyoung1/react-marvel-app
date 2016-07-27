@@ -28,8 +28,7 @@ export default class Home extends React.Component {
   }
 
   _showInfo(comic) {
-    console.log(comic.description);
-
+    this.setState({ show: true });
   }
 
   render() {
@@ -42,11 +41,9 @@ export default class Home extends React.Component {
           <div className="comic-wrapper">
             <div className="comic-images">
               { comics.map((comic, index) => (
-                  <div key={index} className="comic-image" onClick={this._showInfo.bind(this, comic)}>
+                  <div key={index} className="comic-image" onClick={this._showInfo.bind(this)}>
                       <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-                      <div className="comic-desc">
-                        {comic.description}
-                      </div>
+                      {this.state.show ? <div className="comic-desc">{comic.description}</div> : "" }
                   </div>
               ))}
             </div>
