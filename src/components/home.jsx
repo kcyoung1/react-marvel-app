@@ -8,6 +8,7 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       comics : [],
+      show: false,
     }
   }
 
@@ -28,6 +29,7 @@ export default class Home extends React.Component {
 
   _showInfo(comic) {
     console.log(comic.description);
+
   }
 
   render() {
@@ -40,8 +42,11 @@ export default class Home extends React.Component {
           <div className="comic-wrapper">
             <div className="comic-images">
               { comics.map((comic, index) => (
-                  <div key={index} className="comic-image">
-                    <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.description} onClick={this._showInfo.bind(this, comic)} />
+                  <div key={index} className="comic-image" onClick={this._showInfo.bind(this, comic)}>
+                      <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
+                      <div className="comic-desc">
+                        {comic.description}
+                      </div>
                   </div>
               ))}
             </div>

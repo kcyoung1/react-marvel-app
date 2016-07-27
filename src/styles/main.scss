@@ -18,6 +18,7 @@
 // Comic book images
 .comic-wrapper {
   .comic-images {
+    font-family: 'Avenir', Helevetica, sans-serif;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -27,10 +28,20 @@
     display: flex;
     justify-content: center;
     flex: 0 1 33.33%;
+    position: relative;
     img {
         width: auto;
         height: 600px;
         cursor: pointer;
     }
   }
+}
+.comic-desc {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  background-color: rgba(66, 66, 66, 0.8);
+  line-height: 1.2;
 }
