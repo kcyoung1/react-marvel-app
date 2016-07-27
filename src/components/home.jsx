@@ -31,7 +31,7 @@ export default class Home extends React.Component {
     return (
       <div>
           <div className="page_header">
-              <h1 className="page_title">Marvel</h1>
+              <div className="page_title"></div>
           </div>
           <div className="comic-wrapper">
             <div className="comic-images">
@@ -43,6 +43,6 @@ export default class Home extends React.Component {
             </div>
           </div>
       </div>
-    )
-  }
-}
+    );
+  } // render end
+} // App end

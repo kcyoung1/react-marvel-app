@@ -1,0 +1,35 @@
+
+// Header of page
+.page_header {
+  height: 80px;
+  background: #F11E22;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .page_title {
+    background: url(../../assets/marvel-logo.png);
+    background-size: cover;
+    height: 45px;
+    width: 100px;
+  }
+}
+
+// Comic book images
+.comic-wrapper {
+  .comic-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: black;
+  }
+  .comic-image {
+    display: flex;
+    justify-content: center;
+    flex: 0 1 33.33%;
+    img {
+        width: auto;
+        height: 600px;
+    }
+  }
+}
