@@ -38,7 +38,7 @@ export default class Home extends React.Component {
     return (
       <div>
           <div className="page_header">
-              <div className="page_title"></div>
+              <div className="logo"></div>
           </div>
           <div className="comic-wrapper">
             <div className="comic-images">
@@ -53,4 +53,4 @@ export default class Home extends React.Component {
       </div>
     );
   } // render end
-} // App end
+} // Home end
