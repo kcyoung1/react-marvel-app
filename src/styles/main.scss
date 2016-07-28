@@ -14,6 +14,20 @@ body {
   background: url(../../assets/marvel-logo.png);
   background-size: cover;
 }
+.btn {
+  padding: 10px 30px;
+  font-size: 25px;
+  background: black;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  @include tablet {
+    padding: 20px 40px;
+    font-size: 30px;
+  }
+}
 
 
 // Welcome page
@@ -31,20 +45,6 @@ body {
     @include tablet {
       height: 30%;
       width: 500px;
-    }
-  }
-  .btn {
-    padding: 10px 30px;
-    font-size: 25px;
-    background: black;
-    color: white;
-    border: 0;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    @include tablet {
-      padding: 20px 40px;
-      font-size: 30px;
     }
   }
 }

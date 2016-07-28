@@ -46,13 +46,15 @@ export default class Home extends React.Component {
           </div>
           <div className="comic-wrapper">
             <div className="comic-images">
-              { comics.map((comic, index) => (
+              {
+                comics && comics.length
+                ? comics.map((comic, index) => (
                 <Comic
                   key={index}
                   comic={comic}
-                />
-              )
-            )}
+                />))
+               : <p className="btn">Loading...</p>
+          }
             </div>
           </div>
       </div>
