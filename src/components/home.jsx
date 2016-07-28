@@ -46,7 +46,7 @@ export default class Home extends React.Component {
                   <div key={index} className={`comic-image image-${comic.id}`} onClick={this._showInfo.bind(this)}>
                       <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
                       {this.state.show ?  <div className="comic-desc">{comic.description}
-                      <a href={comic.urls[0].url} className="rd-btn">Read More</a>
+                      <a href={comic.urls[0].url} className="rd-btn" target="_blank" rel="noopener noreferrer">Read More</a>
                       </div> : " "}
                   </div>
               ))}
