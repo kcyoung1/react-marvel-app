@@ -22,7 +22,7 @@ export default class Home extends React.Component {
       method: 'GET',
       url:
       'http://gateway.marvel.com/v1/public/comics?apikey=c1a92559e851c361fc7f540560163ef8',
-      success:  response => {
+      success: response => {
         this.setState({ comics: response.data.results });
       }
     });
@@ -45,7 +45,9 @@ export default class Home extends React.Component {
               { comics.map((comic, index) => (
                   <div key={index} className={`comic-image image-${comic.id}`} onClick={this._showInfo.bind(this)}>
                       <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-                      {this.state.show ?  <div className="comic-desc">{comic.description}</div> : " "}
+                      {this.state.show ?  <div className="comic-desc">{comic.description}
+                      <a href={comic.urls[0].url} className="rd-btn">Read More</a>
+                      </div> : " "}
                   </div>
               ))}
             </div>
