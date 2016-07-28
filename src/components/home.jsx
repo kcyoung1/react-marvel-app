@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, Redirect} from 'react-router';
 
 import Comic from './comic';
-import apikey from '../key'; // replace the variable with your api key
+import apikey from '../lib/key'; // replace the variable with your api key
 import makeRequest from '../lib/fetch';
 
 export default class Home extends React.Component {
