@@ -4,6 +4,7 @@ import { Router, Route, browserHistory, Redirect} from 'react-router';
 
 import Comic from './comic';
 import apikey from '../key'; // replace the variable with your api key
+import makeRequest from '../lib/fetch';
 
 export default class Home extends React.Component {
 
@@ -14,26 +15,12 @@ export default class Home extends React.Component {
     };
   }
 
-// To get the data using an AJAX request from the Marvel API
+// To get the data using an makeRequest from the Marvel API
   componentWillMount() {
-    this._fetchData();
-    // fetch('http://gateway.marvel.com/v1/public/comics?apikey=' + apikey)
-    // .then((response) => {
-    //   console.log(response);
-    //   this.setState({ comics: response.data.results });
-    // })
-  }
-
-  _fetchData()  {
-    $.ajax({
-      method: 'GET',
-      url:
-      'http://gateway.marvel.com/v1/public/comics?apikey=' + apikey,
-      success: response => {
-        console.log(response.data.results);
-        this.setState({ comics: response.data.results });
-      }
-    });
+    makeRequest('GET', 'http://gateway.marvel.com/v1/public/comics?apikey=' + apikey).then((response) => {
+      const results = JSON.parse(response);
+      this.setState({ comics: results.data.results });
+    })
   }
 
   render() {
