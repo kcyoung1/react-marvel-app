@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, Redirect} from 'react-router';
 
-import Home from './components/home.jsx';
-import Welcome from './components/welcome.jsx';
+import Home from './components/home';
+import Welcome from './components/welcome';
 
 require('./styles/reset.scss');
 require('./styles/main.scss');
@@ -18,7 +18,7 @@ class App extends React.Component {
        <Route path='/home' component={Home}/>
      </Router>
    );
-   
+
 
  } // render end
 } // App end

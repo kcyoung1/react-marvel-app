@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 module.exports = {
     entry: {
+        polyfills: ['whatwg-fetch'],
         main: './src/main.jsx',
     },
     output: {

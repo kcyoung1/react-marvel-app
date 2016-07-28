@@ -2,39 +2,43 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, Redirect} from 'react-router';
 
+import Comic from './comic';
+import apikey from '../key'; // replace the variable with your api key
+
 export default class Home extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       comics : [],
-      show: false,
-    }
+    };
   }
 
 // To get the data using an AJAX request from the Marvel API
   componentWillMount() {
     this._fetchData();
+    // fetch('http://gateway.marvel.com/v1/public/comics?apikey=' + apikey)
+    // .then((response) => {
+    //   console.log(response);
+    //   this.setState({ comics: response.data.results });
+    // })
   }
 
   _fetchData()  {
     $.ajax({
       method: 'GET',
       url:
-      'http://gateway.marvel.com/v1/public/comics?apikey=c1a92559e851c361fc7f540560163ef8',
+      'http://gateway.marvel.com/v1/public/comics?apikey=' + apikey,
       success: response => {
+        console.log(response.data.results);
         this.setState({ comics: response.data.results });
       }
     });
   }
 
-// To show/hide the comic book description
-  _showInfo(comic) {
-    this.setState({ show: !this.state.show });
-  }
-
   render() {
     const { comics } = this.state;
+    console.log(this.state.comics);
     return (
       <div>
           <div className="page_header">
@@ -43,13 +47,12 @@ export default class Home extends React.Component {
           <div className="comic-wrapper">
             <div className="comic-images">
               { comics.map((comic, index) => (
-                  <div key={index} className={`comic-image image-${comic.id}`} onClick={this._showInfo.bind(this)}>
-                      <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-                      {this.state.show ?  <div className="comic-desc">{comic.description}
-                      <a href={comic.urls[0].url} className="rd-btn" target="_blank" rel="noopener noreferrer">Read More</a>
-                      </div> : " "}
-                  </div>
-              ))}
+                <Comic
+                  key={index}
+                  comic={comic}
+                />
+              )
+            )}
             </div>
           </div>
       </div>

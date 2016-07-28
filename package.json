@@ -6,7 +6,8 @@
   "dependencies": {
     "history": "^2.1.2",
     "react-router": "^2.6.0",
-    "redux-router": "^1.0.0-beta3"
+    "redux-router": "^1.0.0-beta3",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.8.0",
