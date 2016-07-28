@@ -49,6 +49,7 @@ body {
 
 // Comic book images
 .comic-wrapper {
+  z-index: 2;
   .comic-images {
     display: flex;
     flex-wrap: wrap;
