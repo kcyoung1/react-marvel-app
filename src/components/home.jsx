@@ -45,9 +45,7 @@ export default class Home extends React.Component {
               { comics.map((comic, index) => (
                   <div key={index} className={`comic-image image-${comic.id}`} onClick={this._showInfo.bind(this)}>
                       <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-                      <div className={`hide-${this.state.show}`}>
-                        <div className="comic-desc">{comic.description}</div>
-                      </div>
+                      {this.state.show ?  <div className="comic-desc">{comic.description}</div> : " "}
                   </div>
               ))}
             </div>
