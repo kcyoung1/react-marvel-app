@@ -14,12 +14,16 @@ class Comic extends React.Component {
   render() {
     const { comic } = this.props;
     return (
-    <div className="comic-image" onClick={this._showInfo.bind(this)}>
-        <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-        {this.state.show ?  <div className="comic-desc">{comic.description}
-        <a href={comic.urls[0].url} className="rd-btn" target="_blank" rel="noopener noreferrer">Read More</a>
-        </div> : null}
-    </div>);
+    <div className="comic-card">
+        <div className="comic-image" onClick={this._showInfo.bind(this)}>
+          <h1 className="comic-title">{comic.title}</h1>
+          <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
+          {this.state.show ? <div className="comic-desc">{comic.description}
+            <a href={comic.urls[0].url} className="rd-btn" target="_blank" rel="noopener noreferrer">Read More</a>
+          </div> : null}
+        </div>
+    </div>
+    );
   }
 }
 

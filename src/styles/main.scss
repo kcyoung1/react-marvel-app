@@ -9,9 +9,10 @@ $tablet-width: 600px;
 // Global
 body {
   font-family: 'Avenir', Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 .logo {
-  background: url(../../assets/marvel-logo.png);
+  background: url(../../assets/marvel-logo.png) no-repeat center center;
   background-size: cover;
 }
 .btn {
@@ -39,10 +40,11 @@ body {
   height: 100vh;
   width: 100vw;
   .logo {
-    height: 17%;
+    margin-bottom: 30px;
+    height: 140px;
     width: 300px;
     @include tablet {
-      height: 30%;
+      height: 180px;
       width: 500px;
     }
   }
@@ -70,6 +72,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     background: black;
+    position: relative;
   }
   .comic-image {
     display: flex;
@@ -77,16 +80,33 @@ body {
     flex: 0 1 33.33%;
     position: relative;
     img {
-        width: 400px;
+        max-width: 400px;
+        width: 100%;
         height: 600px;
         cursor: pointer;
     }
+  }
+  .comic-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 30px;
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
   }
 } // .comic-wrapper
 
 // Comic book descriptions
 .comic-desc {
   color: white;
+  width: 90%;
   position: absolute;
   bottom: 0;
   left: 0;
